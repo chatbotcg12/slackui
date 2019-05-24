@@ -12,29 +12,55 @@ app.listen(port, "0.0.0.0", function () {
 Slack = require('node-slackr');
 slack = new Slack('https://hooks.slack.com/services/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');
 app.get('/ui', (req, res) => {
-    messages = {
-        text: "Display Image",
-        channel: "#notifications",
-         attachments: [
-          {
-            color: '#5A352D',
-            title: 'How can I help you?',
-            callback_id: 'order:start',
-            actions: [
-              {
-                name: 'start',
-                text: 'Start a coffee order',
-                type: 'select',
-                value: 'order:start',
-              },
-            ],
-          },
-        ],
-
-    };
-    console.log("Image sent to slack");
-    slack.notify(messages, function (err, result) {
-        console.log(err, result);
-    });
+   {
+    "text": "Would you like to play a game?",
+    "response_type": "in_channel",
+    "attachments": [
+        {
+            "text": "Choose a game to play",
+            "fallback": "If you could read this message, you'd be choosing something fun to do right now.",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "callback_id": "game_selection",
+            "actions": [
+                {
+                    "name": "games_list",
+                    "text": "Pick a game...",
+                    "type": "select",
+                    "options": [
+                        {
+                            "text": "Hearts",
+                            "value": "hearts"
+                        },
+                        {
+                            "text": "Bridge",
+                            "value": "bridge"
+                        },
+                        {
+                            "text": "Checkers",
+                            "value": "checkers"
+                        },
+                        {
+                            "text": "Chess",
+                            "value": "chess"
+                        },
+                        {
+                            "text": "Poker",
+                            "value": "poker"
+                        },
+                        {
+                            "text": "Falken's Maze",
+                            "value": "maze"
+                        },
+                        {
+                            "text": "Global Thermonuclear War",
+                            "value": "war"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
 
 });
