@@ -12,10 +12,11 @@ app.listen(port, "0.0.0.0", function () {
 Slack = require('node-slackr');
 slack = new Slack('https://hooks.slack.com/services/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');
 app.get('/ui', (req, res) => {
-   {
-    "text": "Would you like to play a game?",
-    "response_type": "in_channel",
-    "attachments": [
+   
+    messages = {
+        text: "Display Image",
+        channel: "#notifications",
+       "attachments": [
         {
             "text": "Choose a game to play",
             "fallback": "If you could read this message, you'd be choosing something fun to do right now.",
@@ -61,10 +62,11 @@ app.get('/ui', (req, res) => {
             ]
         }
     ]
-}
- slack.notify(messages, function (err, result) {
+
+    };
+    console.log("Image sent to slack");
+    slack.notify(messages, function (err, result) {
         console.log(err, result);
     });
-
 
 });
