@@ -24,7 +24,7 @@ app.get('/ui', (req, res) => {
               {
                 name: 'start',
                 text: 'Start a coffee order',
-                type: 'button',
+                type: 'select',
                 value: 'order:start',
               },
             ],
