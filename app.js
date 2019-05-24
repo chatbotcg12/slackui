@@ -10,7 +10,7 @@ app.listen(port, "0.0.0.0", function () {
 });
 
 Slack = require('node-slackr');
-slack = new Slack('https://hooks.slack.com/services/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');
+slack = new Slack('https://hooks.slack.com/services/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');
 app.get('/getimage', (req, res) => {
     messages = {
         text: "Display Image",
