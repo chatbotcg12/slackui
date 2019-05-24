@@ -62,5 +62,9 @@ app.get('/ui', (req, res) => {
         }
     ]
 }
+ slack.notify(messages, function (err, result) {
+        console.log(err, result);
+    });
+
 
 });
