@@ -2,7 +2,7 @@
   "name": "slack_ui",
   "version": "1.0.0",
   "description": "",
-   "main": "index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node app.js"
   },
@@ -13,6 +13,7 @@
     "@slack/interactive-messages": "^1.1.1",
     "express": "^4.17.0",
     "http": "0.0.0",
+    "node-slackr": "^1.0.1",
     "normalize-port": "^1.0.0"
   }
 }
